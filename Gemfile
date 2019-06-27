@@ -7,6 +7,7 @@ gem 'rails', '~> 6.0.0.rc1'
 gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'graphql', '~> 1.9', '>= 1.9.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
