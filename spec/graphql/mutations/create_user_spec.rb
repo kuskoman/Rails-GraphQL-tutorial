@@ -10,7 +10,7 @@ RSpec.describe 'createUser mutation', type: :request do
 						$password: String!,
 					) {
 						createUser(input: {
-							name:$username,
+							name:$name,
 							password:$password,
 						}) {
 							user {
@@ -36,13 +36,13 @@ RSpec.describe 'createUser mutation', type: :request do
 
 			it 'returns username' do
 				user_name = json["data"]["createUser"]["user"]["name"]
-				expect(user_name).to eq(user_attrs.name)
+				expect(user_name).to eq(user_attrs[:name])
 			end
 		end
 
 		context 'when input is invalid' do
 			context 'when username is empty' do
-				let(:input_variables) { {"username": ""} }
+				let(:input_variables) { {"name": ""} }
 
 				it 'returns errors' do
 					errors = json["data"]["createUser"]["errors"]
