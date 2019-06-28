@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
 		it { should validate_presence_of(:password) }
 
 		it { should validate_length_of(:name).is_at_least(3).is_at_most(32) }
-		it { should validate_length_of(:password).is_at_least(6) }
+		it { should validate_length_of(:password).is_at_least(6).is_at_most(72) }
 
 		context 'username validation' do
 			it 'should accept valid usernames' do
