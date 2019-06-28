@@ -4,9 +4,17 @@ module Types
       description "Find user by ID"
       argument :id, ID, required: true
     end
-  end
 
-  def user(id:)
-    User.find(id)
+    field :all_users, [UserType], null: true do
+      description "Find all users"
+    end
+
+    def user(id:)
+      User.find(id)
+    end
+
+    def all_users
+      User.all
+    end
   end
 end
